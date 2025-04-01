@@ -25,6 +25,7 @@
     import * as zebar from 'https://esm.sh/zebar@2';
 
     const providers = zebar.createProviderGroup({
+      audio: { type: 'audio' },
       glazewm: { type: 'glazewm' },
       date: { type: 'date', formatting: 'EEE d MMM t' },
       media: { type: 'media' },
@@ -35,6 +36,7 @@
 
     function App() {
       const [output, setOutput] = useState(providers.outputMap);
+      const [showVolumeSlider, setShowVolumeSlider] = useState(false);
 
       useEffect(() => {
         providers.onOutput(() => setOutput(providers.outputMap));
@@ -121,11 +123,58 @@
                 ))}
               </>
             )}
-            <div className="chip" onClick={() => output.media?.togglePlayPause()}>
-              {output.media?.currentSession?.isPlaying ? <i className="nf nf-fa-pause" /> : <i className="nf nf-fa-play" />}
-              {output.media?.currentSession?.artist}
-              {output.media?.currentSession?.artist ? ' - ' : ''}
-              {output.media?.currentSession?.title}
+            {output.audio?.defaultPlaybackDevice && (
+              <div className="audio-control">
+                <div
+                  className="chip volume-button"
+                  onClick={() => setShowVolumeSlider(!showVolumeSlider)}
+                >
+                  <i className={`nf ${output.audio.defaultPlaybackDevice.volume === 0
+                    ? 'nf-md-volume_off'
+                    : output.audio.defaultPlaybackDevice.volume < 30
+                      ? 'nf-md-volume_low'
+                      : output.audio.defaultPlaybackDevice.volume < 70
+                        ? 'nf-md-volume_medium'
+                        : 'nf-md-volume_high'}`}></i>
+                </div>
+                {showVolumeSlider && (
+                  <div className="volume-slider-container">
+                    <input
+                      type="range"
+                      className="volume-slider"
+                      min="0"
+                      max="100"
+                      step="2"
+                      value={output.audio.defaultPlaybackDevice.volume}
+                      onChange={e => output.audio.setVolume(e.target.valueAsNumber)}
+                      onMouseUp={() => setShowVolumeSlider(false)}
+                      onBlur={() => setShowVolumeSlider(false)}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+            <div className="media-controls">
+              {output.media?.currentSession?.artist ? (
+                <>
+                  <div className="chip" onClick={() => output.media?.previous()}>
+                    <i className="nf nf-fa-fast_backward"></i>
+                  </div>
+                  <div className="chip" onClick={() => output.media?.togglePlayPause()}>
+                    <i className={`nf ${output.media?.currentSession?.isPlaying ? 'nf-fa-pause' : 'nf-fa-play'}`}></i>
+                    <span className="media-text">
+                      {output.media?.currentSession?.artist}
+                      {output.media?.currentSession?.artist ? ' - ' : ''}
+                      {output.media?.currentSession?.title}
+                    </span>
+                  </div>
+                  <div className="chip" onClick={() => output.media?.next()}>
+                    <i className="nf nf-fa-fast_forward"></i>
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
             {output.weather && (
               <div className="weather">
