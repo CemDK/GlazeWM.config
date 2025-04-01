@@ -9,6 +9,7 @@ i {
   margin-right: 7px;
 }
 
+
 body {
   color: rgb(255 255 255 / 90%);
   font-family: ui-monospace, monospace;
@@ -19,6 +20,7 @@ body {
 div,
 span,
 p {
+  color: rgb(115 130 175 / 95%);
   cursor: default;
   user-select: none;
 }
@@ -79,7 +81,6 @@ body,
 
 .chip {
   background: rgba(255, 255, 255, 0);
-  margin-right: 4px;
   padding: 4px 8px;
   color: rgb(255 255 255 / 90%);
   border: none;
@@ -125,4 +126,94 @@ body,
 
 .binding-mode {
   margin-right: 4px;
+}
+
+.media-controls {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.media-controls .chip {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  height: 24px;
+  /* Ensure consistent height */
+}
+
+.media-controls i {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.media-text {
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
+  /* Reset line height */
+}
+
+/* Audio volume control styling */
+.audio-control {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 10px;
+}
+
+.volume-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.volume-button i {
+  margin-right: 0;
+}
+
+.volume-slider-container {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5, 2, 20, 0.85);
+  /* Adjusted to match the root background */
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+  margin-right: 8px;
+  /* Add some space between button and slider */
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 4px;
+  background: rgb(75, 115, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(75, 115, 255);
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(75, 115, 255);
+  cursor: pointer;
+  border: none;
 }
