@@ -193,7 +193,7 @@ window_rules:
 
   - commands: ["move --workspace 1"]
     match: 
-      - window_process: { regex: '[Ff]irefox'}
+      - window_title: { regex: '[Mm]ozilla [Ff]irefox'}
 
   - commands: ["move --workspace 2"]
     match: 
