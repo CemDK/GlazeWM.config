@@ -82,6 +82,7 @@ window_effects:
       opacity: '100%'
 
   # Visual effects to apply to non-focused windows.
+  # Exclusive to win 11
   other_windows:
     border:
       enabled: true
@@ -150,6 +151,9 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: false
   - name: '8'
+    display_name: "8 misc"
+    bind_to_monitor: 1
+    keep_alive: false
   - name: '9'
   - name: 'minecraft'
     display_name: "minecraft"
@@ -173,29 +177,21 @@ window_rules:
         window_class: { regex: 'HwndWrapper' }
 
   # Move Edge (for dev) and pip windows to second screen
-  - commands: ["move --workspace 0"]
-    match: 
-      - window_process: { regex: 'edge'}
-      
-      - window_title: { regex: '[Bb]ild-im-[Bb]ild' }
-        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
-  
-  # The next two size commands make it so edge and the pip fill the screen properly
-  - commands: ["size --width 1400 --height 1650"]
+  # The size commands make it so edge and the pip fill the screen properly
+  - commands: ["move --workspace 0", "size --width 1400 --height 1650"]
     match:
       - window_process: { regex: 'edge'}
 
-  - commands: ["size --width 1400 --height 790"]
+  - commands: ["move --workspace 0", "size --width 1400 --height 790"]
     match:
       - window_title: { regex: '[Bb]ild-im-[Bb]ild' }
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
-
 
   - commands: ["move --workspace 1"]
     match: 
       - window_title: { regex: '[Mm]ozilla [Ff]irefox'}
 
-  - commands: ["move --workspace 2"]
+  - commands: ["move --workspace 2", "focus --workspace 2"]
     match: 
       - window_process: { regex: 'explorer'}
 
@@ -203,7 +199,7 @@ window_rules:
     match: 
       - window_process: { regex: '[Tt]erminal'}
 
-  - commands: ["move --workspace 4"]
+  - commands: ["move --workspace 4", "focus --workspace 4"]
     match: 
       - window_process: { regex: 'Visual Studio Code'}
       - window_title: { regex: '[Vv]isual [Ss]tudio [Cc]ode' }
@@ -211,19 +207,20 @@ window_rules:
   - commands: ["move --workspace 5"]
     match: 
       - window_process: { equals: 'Obsidian'}
-      - window_title: { regex: '[Oo]bsidian' }
 
   - commands: ["move --workspace 6"]
     match: 
-      - window_process: { equals: 'Anki'}
-      - window_title: { regex: '[Aa]nki' }
+      - window_process: { regex: '[Aa]nki'}
 
   - commands: ["move --workspace 7"]
     match: 
       - window_process: { equals: 'Fusion360'}
-      - window_title: { regex: '[Ff]usion' }
+  
+  - commands: ["move --workspace 8", "focus --workspace 8"]
+    match: 
+      - window_process: { regex: '[Pp]lex|[Ss]team|[Ee]pic[Gg]ames|vlc'}
 
-  - commands: ["move --workspace minecraft"]
+  - commands: ["move --workspace minecraft", "focus --workspace minecraft"]
     match: 
       - window_process: { regex: '[Mm]inecraft'}
 
