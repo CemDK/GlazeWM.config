@@ -131,7 +131,7 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: true
   - name: "3"
-    display_name: "3 vscode"
+    display_name: "3 nvim"
     bind_to_monitor: 1
     keep_alive: true
   - name: "4"
@@ -206,6 +206,8 @@ window_rules:
     match:
       - window_process: { regex: "Visual Studio Code" }
       - window_title: { regex: "[Vv]isual [Ss]tudio [Cc]ode" }
+      - window_process: { regex: "neovide" }
+      # - window_title: { regex: "neovide" }
 
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
