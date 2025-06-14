@@ -139,15 +139,15 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: true
   - name: "5"
-    display_name: "5 obsidian"
+    display_name: "5 other"
     bind_to_monitor: 1
-    keep_alive: true
+    keep_alive: false
   - name: "6"
     display_name: "6 anki"
     bind_to_monitor: 1
     keep_alive: false
   - name: "7"
-    display_name: "7 fusion"
+    display_name: "7 obsidian"
     bind_to_monitor: 1
     keep_alive: false
   - name: "8"
@@ -212,7 +212,7 @@ window_rules:
 
   - commands: ["move --workspace 5"]
     match:
-      - window_process: { equals: "Obsidian" }
+      - window_process: { equals: "Fusion360" }
 
   - commands: ["move --workspace 6"]
     match:
@@ -220,11 +220,12 @@ window_rules:
 
   - commands: ["move --workspace 7"]
     match:
-      - window_process: { equals: "Fusion360" }
+      - window_process: { equals: "Obsidian" }
 
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
-      - window_process: { regex: "[Pp]lex|[Ss]team|[Ee]pic[Gg]ames|vlc" }
+      - window_process:
+          { regex: "[Pp]lex|[Ss]team|[Ee]pic[Gg]ames|vlc|[Ss]umatra" }
 
   - commands: ["move --workspace minecraft", "focus --workspace minecraft"]
     match:
