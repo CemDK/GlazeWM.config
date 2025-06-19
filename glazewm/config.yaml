@@ -226,6 +226,7 @@ window_rules:
     match:
       - window_process:
           { regex: "[Pp]lex|[Ss]team|[Ee]pic[Gg]ames|vlc|[Ss]umatra" }
+      - window_title: { regex: "GOG Galaxy" }
 
   - commands: ["move --workspace minecraft", "focus --workspace minecraft"]
     match:
@@ -321,7 +322,7 @@ keybindings:
 
   # Change the focused window to be fullscreen.
   - commands: ["toggle-fullscreen"]
-    bindings: ["alt+f"]
+    bindings: ["alt+i"]
 
   # Minimize focused window.
   - commands: ["toggle-minimized"]
@@ -363,15 +364,15 @@ keybindings:
   - commands: ["focus --workspace 0"]
     bindings: ["alt+0", "alt+h"]
   - commands: ["focus --workspace 1"]
-    bindings: ["alt+1", "alt+j"]
+    bindings: ["alt+1", "alt+f"]
   - commands: ["focus --workspace 2"]
-    bindings: ["alt+2", "alt+k"]
+    bindings: ["alt+2", "alt+j"]
   - commands: ["focus --workspace 3"]
-    bindings: ["alt+3", "alt+l"]
+    bindings: ["alt+3", "alt+k"]
   - commands: ["focus --workspace 4"]
-    bindings: ["alt+4", "alt+;"]
+    bindings: ["alt+4", "alt+l"]
   - commands: ["focus --workspace 5"]
-    bindings: ["alt+5"]
+    bindings: ["alt+5", "alt+;"]
   - commands: ["focus --workspace 6"]
     bindings: ["alt+6"]
   - commands: ["focus --workspace 7"]
