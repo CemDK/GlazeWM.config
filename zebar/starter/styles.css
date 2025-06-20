@@ -2,14 +2,13 @@
  * Import the Nerdfonts icon font.
  * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
  */
-@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
 
 i {
   /* color: rgb(115 130 175 / 95%); */
   color: #93a1a1;
   margin-right: 7px;
 }
-
 
 body {
   color: rgb(255 255 255 / 90%);
@@ -91,7 +90,7 @@ body,
 
   &.focused,
   &:hover {
-    background: #005F60;
+    background: #005f60;
   }
 }
 
@@ -110,7 +109,7 @@ body,
 
   &.focused,
   &:hover {
-    background: #005F60;
+    background: #005f60;
     color: rgb(255 255 255 / 90%);
   }
 }
@@ -156,7 +155,11 @@ body,
   align-items: center;
   height: 100%;
   line-height: 1;
-  /* Reset line height */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* max-width: 200px; */
+  overflow: hidden;
+  max-width: 256px;
 }
 
 /* Audio volume control styling */
@@ -204,7 +207,7 @@ body,
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #005F60;
+  background: #005f60;
   cursor: pointer;
 }
 
@@ -212,7 +215,8 @@ body,
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #005F60;
+  background: #005f60;
   cursor: pointer;
   border: none;
 }
+
