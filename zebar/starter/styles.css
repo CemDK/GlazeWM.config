@@ -157,7 +157,6 @@ body,
   line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* max-width: 200px; */
   overflow: hidden;
   max-width: 256px;
 }
