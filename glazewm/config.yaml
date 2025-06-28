@@ -176,6 +176,11 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
 
+  - commands: ["move --workspace 1"]
+    match:
+      - window_process: { equals: "Zen" }
+      - window_title: { regex: "[Mm]ozilla [Ff]irefox" }
+
   # Move Edge (for dev) and pip windows to second screen
   # The size commands make it so edge and the pip fill the screen properly
   - commands: ["move --workspace 0", "size --width 1400 --height 1650"]
@@ -188,11 +193,6 @@ window_rules:
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
-
-  - commands: ["move --workspace 1"]
-    match:
-      - window_title: { regex: "[Zz]en" }
-      - window_title: { regex: "[Mm]ozilla [Ff]irefox" }
 
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
