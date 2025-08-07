@@ -155,8 +155,7 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: false
   - name: "9"
-  - name: "minecraft"
-    display_name: "minecraft"
+    display_name: "9 games"
     bind_to_monitor: 1
     keep_alive: false
 
@@ -224,8 +223,11 @@ window_rules:
 
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
-      - window_process:
-          { regex: "[Pp]lex|[Ss]team|[Ee]pic[Gg]ames|vlc|[Ss]umatra" }
+      - window_process: { regex: "[Pp]lex|vlc|[Ss]umatra" }
+
+  - commands: ["move --workspace 9", "focus --workspace 9"]
+    match:
+      - window_process: { regex: "[Ss]team|[Ee]pic[Gg]ames|[Dd]iscord" }
       - window_title: { regex: "GOG Galaxy" }
 
   - commands: ["move --workspace minecraft", "focus --workspace minecraft"]
@@ -236,6 +238,7 @@ window_rules:
     match:
       - window_title: { regex: "[Mm]inecraft [Ll]auncher" }
       - window_title: { regex: "[Tt]ask-[Mm]anager" }
+      - window_title: { regex: "calc|Rechner" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
