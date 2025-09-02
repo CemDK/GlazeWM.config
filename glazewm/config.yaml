@@ -160,6 +160,9 @@ workspaces:
     keep_alive: false
 
 window_rules:
+  # ---------------------------------------------------------------------------
+  # IGNORE
+  # ---------------------------------------------------------------------------
   - commands: ["ignore"]
     match:
       # Ignores any Zebar windows.
@@ -175,11 +178,17 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 1
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 1"]
     match:
-      - window_process: { equals: "Zen" }
+      - window_process: { regex: "[Zz]en" }
       - window_title: { regex: "[Mm]ozilla [Ff]irefox" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 0
+  # ---------------------------------------------------------------------------
   # Move Edge (for dev) and pip windows to second screen
   # The size commands make it so edge and the pip fill the screen properly
   - commands: ["move --workspace 0", "size --width 1400 --height 1650"]
@@ -193,38 +202,58 @@ window_rules:
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 2
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 2"]
     match:
       - window_process: { regex: "[Tt]erminal" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 3
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process: { regex: "Visual Studio Code" }
       - window_process: { regex: "neovide" }
       - window_title: { regex: "^[Vv]isual [Ss]tudio [Cc]ode$" }
-      # - window_title: { regex: "neovide" }
 
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_title: { regex: "Microsoft Visual Studio 2022" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 4
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
       - window_process: { regex: "explorer" }
         window_class: { not_equals: "OperationStatusWindow" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 5
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 5"]
     match:
       - window_process: { equals: "Fusion360" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 6
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 6"]
     match:
       - window_process: { regex: "[Aa]nki" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 7
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 7"]
     match:
       - window_process: { equals: "Obsidian" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 8
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
       - window_process: { regex: "[Pp]lex|vlc|[Ss]umatra" }
@@ -234,6 +263,9 @@ window_rules:
       - window_process: { equals: "Unity Hub" }
       - window_process: { equals: "Unity" }
 
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 9
+  # ---------------------------------------------------------------------------
   - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
       - window_process: { regex: "[Ss]team|[Ee]pic[Gg]ames|[Dd]iscord" }
@@ -243,6 +275,9 @@ window_rules:
     match:
       - window_process: { regex: "[Mm]inecraft" }
 
+  # ---------------------------------------------------------------------------
+  # FLOATING
+  # ---------------------------------------------------------------------------
   - commands: ["set-floating"]
     match:
       - window_title: { regex: "[Mm]inecraft [Ll]auncher" }
