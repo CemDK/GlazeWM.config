@@ -178,6 +178,8 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
 
+      - window_process: { equals: "SnippingTool" }
+
   # ---------------------------------------------------------------------------
   # WORKSPACE 1
   # ---------------------------------------------------------------------------
@@ -283,6 +285,7 @@ window_rules:
       - window_title: { regex: "[Mm]inecraft [Ll]auncher" }
       - window_title: { regex: "[Tt]ask-[Mm]anager" }
       - window_title: { regex: "calc|Rechner" }
+      - window_title: { regex: "Extension.*Bitwarden.*" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
