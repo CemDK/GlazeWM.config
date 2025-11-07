@@ -394,6 +394,9 @@ keybindings:
   - commands: ["wm-redraw"]
     bindings: ["alt+shift+w"]
 
+  - commands: ["toggle-floating --centered"]
+    bindings: ["alt+c"]
+
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
