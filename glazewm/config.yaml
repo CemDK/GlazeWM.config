@@ -264,6 +264,7 @@ window_rules:
     match:
       - window_process: { equals: "Unity Hub" }
       - window_process: { equals: "Unity" }
+      - window_title: { regex: "[Vv]irtual[Bb]ox" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 9
@@ -286,6 +287,7 @@ window_rules:
       - window_title: { regex: "[Tt]ask-[Mm]anager" }
       - window_title: { regex: "calc|Rechner" }
       - window_title: { regex: "Extension.*Bitwarden.*" }
+      - window_title: { regex: "[Vv]irtual[Bb]ox Manager" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
