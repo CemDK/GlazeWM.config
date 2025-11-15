@@ -139,11 +139,11 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: true
   - name: "5"
-    display_name: "5 other"
+    display_name: "5 games"
     bind_to_monitor: 1
     keep_alive: false
   - name: "6"
-    display_name: "6 anki"
+    display_name: "6 others"
     bind_to_monitor: 1
     keep_alive: false
   - name: "7"
@@ -155,7 +155,7 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: false
   - name: "9"
-    display_name: "9 games"
+    display_name: "9 launchers"
     bind_to_monitor: 1
     keep_alive: false
   - name: "10"
@@ -221,7 +221,7 @@ window_rules:
     match:
       - window_process: { equals: "Code" }
       - window_process: { equals: "neovide" }
-      - window_title: { regex: "Microsoft Visual Studio 2022" }
+      - window_process: { equals: "devenv" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 4
@@ -237,19 +237,26 @@ window_rules:
   - commands: ["move --workspace 5"]
     match:
       - window_process: { equals: "Fusion360" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Minecraft" }
+
+  - commands: ["move --workspace 5", "set-floating"]
+    match:
+      - window_process: { equals: "Minecraft" }
+        window_title: { equals: "Minecraft Launcher" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 6
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 6"]
     match:
-      - window_process: { equals: "anki" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 7
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 7"]
     match:
+      - window_process: { equals: "anki" }
       - window_process: { equals: "Obsidian" }
 
   # ---------------------------------------------------------------------------
@@ -283,15 +290,15 @@ window_rules:
         window_title: { equals: "Freundesliste" }
 
   # Set all other Steam windows to floating
-  - commands: ["set-floating"]
+  - commands: ["move --workspace 9", "set-floating"]
     match:
       - window_process: { equals: "steamwebhelper" }
         window_title: { not_regex: "Steam|Freundesliste" }
 
-  - commands: ["move --workspace 9", "focus --workspace 9"]
+  - commands: ["move --workspace 9"]
     match:
-      - window_process: { regex: "[Ee]pic[Gg]ames|[Dd]iscord|[Mm]inecraft" }
-      - window_title: { regex: "GOG Galaxy" }
+      - window_process: { equals: "EpicGamesLauncher" }
+      - window_process: { equals: "GalaxyClient" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 10
@@ -305,10 +312,12 @@ window_rules:
   # ---------------------------------------------------------------------------
   - commands: ["set-floating"]
     match:
-      - window_title: { regex: "[Mm]inecraft [Ll]auncher" }
-      - window_title: { regex: "[Tt]ask-[Mm]anager" }
+      # Set Browser extension windows to floating.
+      - window_process: { equals: "zen" }
+        window_title: { regex: "Extension" }
+        window_class: { equals: "MozillaDialogClass" }
+      - window_process: { equals: "Taskmgr" }
       - window_title: { regex: "calc|Rechner" }
-      - window_title: { regex: "Extension.*Bitwarden.*" }
       - window_title: { regex: "Window Spy" }
       - window_process: { equals: "VirtualBoxVM" }
         window_title: { equals: "Close Virtual Machine" }
