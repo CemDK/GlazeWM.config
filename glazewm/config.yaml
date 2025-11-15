@@ -158,6 +158,10 @@ workspaces:
     display_name: "9 games"
     bind_to_monitor: 1
     keep_alive: false
+  - name: "10"
+    display_name: "10 stuff"
+    bind_to_monitor: 1
+    keep_alive: false
 
 window_rules:
   # ---------------------------------------------------------------------------
@@ -183,10 +187,10 @@ window_rules:
   # ---------------------------------------------------------------------------
   # WORKSPACE 1
   # ---------------------------------------------------------------------------
-  - commands: ["move --workspace 1"]
+  - commands: ["move --workspace 1", focus --workspace 1]
     match:
-      - window_process: { regex: "[Zz]en" }
-      - window_title: { regex: "[Mm]ozilla [Ff]irefox" }
+      - window_process: { equals: "zen" }
+      - window_process: { equals: "firefox" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 0
@@ -195,33 +199,28 @@ window_rules:
   # The size commands make it so edge and the pip fill the screen properly
   - commands: ["move --workspace 0", "size --width 1400 --height 1650"]
     match:
-      - window_process: { regex: "edge" }
+      - window_process: { equals: "edge" }
 
   - commands: ["move --workspace 0", "size --width 1400 --height 790"]
     match:
-      - window_title: { regex: "[Bb]ild-im-[Bb]ild" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
-      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      - window_title: { equals: "Picture-in-Picture" }
+        window_class: { equals: "MozillaDialogClass" }
+        window_process: { equals: "zen" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 2
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 2"]
     match:
-      - window_process: { regex: "[Tt]erminal" }
+      - window_process: { equals: "WindowsTerminal" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 3
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
-      - window_process: { regex: "Visual Studio Code" }
-      - window_process: { regex: "neovide" }
-      - window_title: { regex: "^[Vv]isual [Ss]tudio [Cc]ode$" }
-
-  - commands: ["move --workspace 3", "focus --workspace 3"]
-    match:
+      - window_process: { equals: "Code" }
+      - window_process: { equals: "neovide" }
       - window_title: { regex: "Microsoft Visual Studio 2022" }
 
   # ---------------------------------------------------------------------------
@@ -229,7 +228,7 @@ window_rules:
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
-      - window_process: { regex: "explorer" }
+      - window_process: { equals: "explorer" }
         window_class: { not_equals: "OperationStatusWindow" }
 
   # ---------------------------------------------------------------------------
@@ -244,7 +243,7 @@ window_rules:
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 6"]
     match:
-      - window_process: { regex: "[Aa]nki" }
+      - window_process: { equals: "anki" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 7
@@ -258,25 +257,48 @@ window_rules:
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
-      - window_process: { regex: "[Pp]lex|vlc|[Ss]umatra" }
+      - window_process: { equals: "Plex" }
+      - window_process: { equals: "SumatraPDF" }
+      - window_process: { equals: "vlc" }
 
   - commands: ["move --workspace 8"]
     match:
       - window_process: { equals: "Unity Hub" }
       - window_process: { equals: "Unity" }
-      - window_title: { regex: "[Vv]irtual[Bb]ox" }
+      - window_process: { equals: "VirtualBoxVM" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 9
   # ---------------------------------------------------------------------------
-  - commands: ["move --workspace 9", "focus --workspace 9"]
+  # Move Steam main window to workspace 9
+  - commands: ["move --workspace 9"]
     match:
-      - window_process: { regex: "[Ss]team|[Ee]pic[Gg]ames|[Dd]iscord" }
-      - window_title: { regex: "GOG Galaxy" }
+      - window_process: { equals: "steamwebhelper" }
+        window_title: { equals: "Steam" }
+
+  # Move Steam friends list to workspace 9 and resize it
+  - commands: ["move --workspace 9", "size --width 440"]
+    match:
+      - window_process: { equals: "steamwebhelper" }
+        window_title: { equals: "Freundesliste" }
+
+  # Set all other Steam windows to floating
+  - commands: ["set-floating"]
+    match:
+      - window_process: { equals: "steamwebhelper" }
+        window_title: { not_regex: "Steam|Freundesliste" }
 
   - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
-      - window_process: { regex: "[Mm]inecraft" }
+      - window_process: { regex: "[Ee]pic[Gg]ames|[Dd]iscord|[Mm]inecraft" }
+      - window_title: { regex: "GOG Galaxy" }
+
+  # ---------------------------------------------------------------------------
+  # WORKSPACE 10
+  # ---------------------------------------------------------------------------
+  - commands: ["move --workspace 10"]
+    match:
+      - window_process: { equals: "Discord" }
 
   # ---------------------------------------------------------------------------
   # FLOATING
@@ -287,7 +309,9 @@ window_rules:
       - window_title: { regex: "[Tt]ask-[Mm]anager" }
       - window_title: { regex: "calc|Rechner" }
       - window_title: { regex: "Extension.*Bitwarden.*" }
-      - window_title: { regex: "[Vv]irtual[Bb]ox Manager" }
+      - window_title: { regex: "Window Spy" }
+      - window_process: { equals: "VirtualBoxVM" }
+        window_title: { equals: "Close Virtual Machine" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
