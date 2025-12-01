@@ -272,6 +272,8 @@ window_rules:
       - window_process: { equals: "Plex" }
       - window_process: { equals: "SumatraPDF" }
       - window_process: { equals: "vlc" }
+      - window_process: { equals: "calibre" }
+      - window_process: { equals: "calibre-parallel" }
 
   - commands: ["move --workspace 8"]
     match:
