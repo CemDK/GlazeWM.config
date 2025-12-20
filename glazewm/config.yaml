@@ -137,11 +137,11 @@ workspaces:
   - name: "3"
     display_name: "3 editor"
     bind_to_monitor: 1
-    keep_alive: true
+    keep_alive: false
   - name: "4"
     display_name: "4 explorer"
     bind_to_monitor: 1
-    keep_alive: true
+    keep_alive: false
   - name: "5"
     display_name: "5 games"
     bind_to_monitor: 1
