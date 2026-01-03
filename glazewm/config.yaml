@@ -274,12 +274,16 @@ window_rules:
       - window_process: { equals: "vlc" }
       - window_process: { equals: "calibre" }
       - window_process: { equals: "calibre-parallel" }
-
-  - commands: ["move --workspace 8"]
-    match:
-      - window_process: { equals: "Unity Hub" }
-      - window_process: { equals: "Unity" }
       - window_process: { equals: "VirtualBoxVM" }
+
+  - commands: ["move --workspace 8", "set-fullscreen"]
+    match:
+      - window_process: { equals: "Unity" }
+
+  - commands: ["move --workspace 8", "set-floating", "set-minimized"]
+    match:
+      - window_process: { equals: "Unity" }
+        window_class: { equals: "ConsoleWindowClass" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 9
@@ -287,6 +291,7 @@ window_rules:
   # Move Steam main window to workspace 9
   - commands: ["move --workspace 9"]
     match:
+      - window_process: { equals: "Unity Hub" }
       - window_process: { equals: "steamwebhelper" }
         window_title: { equals: "Steam" }
 
