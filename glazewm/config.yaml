@@ -263,6 +263,7 @@ window_rules:
     match:
       - window_process: { equals: "anki" }
       - window_process: { equals: "Obsidian" }
+      - window_process: { equals: "blender" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 8
@@ -333,6 +334,8 @@ window_rules:
       - window_title: { regex: "Window Spy" }
       - window_process: { equals: "VirtualBoxVM" }
         window_title: { equals: "Close Virtual Machine" }
+      - window_process: { equals: "blender" }
+        window_title: { equals: "Blender File View" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
