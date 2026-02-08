@@ -201,11 +201,11 @@ window_rules:
   # ---------------------------------------------------------------------------
   # Move Edge (for dev) and pip windows to second screen
   # The size commands make it so edge and the pip fill the screen properly
-  - commands: ["move --workspace 0", "size --width 1400 --height 1675"]
+  - commands: ["move --workspace 0", "size --width 1400 --height 1720"]
     match:
       - window_process: { equals: "msedge" }
 
-  - commands: ["move --workspace 0", "size --width 1400 --height 754"]
+  - commands: ["move --workspace 0", "size --width 1440 --height 810"]
     match:
       - window_title: { equals: "Picture-in-Picture" }
         window_class: { equals: "MozillaDialogClass" }
