@@ -226,6 +226,7 @@ window_rules:
       - window_process: { equals: "Code" }
       - window_process: { equals: "neovide" }
       - window_process: { equals: "devenv" }
+      - window_process: { equals: "Zed" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 4
