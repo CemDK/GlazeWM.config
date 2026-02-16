@@ -111,7 +111,7 @@ window_behavior:
       centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -234,7 +234,7 @@ window_rules:
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
       - window_process: { equals: "explorer" }
-        window_class: { not_equals: "OperationStatusWindow" }
+        window_class: { equals: "CabinetWClass" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 5
@@ -337,6 +337,8 @@ window_rules:
         window_title: { equals: "Close Virtual Machine" }
       - window_process: { equals: "blender" }
         window_title: { equals: "Blender File View" }
+      - window_process: { equals: "explorer" }
+        window_class: { not_equals: "CabinetWClass" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
