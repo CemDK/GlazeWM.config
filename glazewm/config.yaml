@@ -48,14 +48,10 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    # top: "80px"
-    # right: "50px"
-    # bottom: "50px"
-    # left: "50px"
-    top: "29px"
-    right: "0px"
-    bottom: "0px"
-    left: "0px"
+    top: "40px"
+    right: "11px"
+    bottom: "22px"
+    left: "11px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -187,6 +183,9 @@ window_rules:
         window_class: { regex: "HwndWrapper" }
 
       - window_process: { equals: "SnippingTool" }
+
+      - window_process: { equals: "League of Legends" }
+      - window_process: { equals: "LeagueClientUx" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 1
@@ -331,7 +330,7 @@ window_rules:
         window_title: { regex: "Extension" }
         window_class: { equals: "MozillaDialogClass" }
       - window_process: { equals: "Taskmgr" }
-      - window_title: { regex: "calc|Rechner" }
+      - window_title: { equals: "Rechner" }
       - window_title: { regex: "Window Spy" }
       - window_process: { equals: "VirtualBoxVM" }
         window_title: { equals: "Close Virtual Machine" }
