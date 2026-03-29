@@ -48,9 +48,9 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "40px"
+    top: "45px"
     right: "11px"
-    bottom: "22px"
+    bottom: "17px"
     left: "11px"
 
 window_effects:
@@ -97,8 +97,7 @@ window_effects:
       opacity: "0%"
 
 window_behavior:
-  # 'tiling', 'floating'.
-  initial_state: "tiling"
+  initial_state: "tiling" # 'tiling' or 'floating'.
 
   # `set-floating`, are used without any flags.
   state_defaults:
@@ -129,7 +128,7 @@ workspaces:
   - name: "2"
     display_name: "2 terminal"
     bind_to_monitor: 1
-    keep_alive: true
+    keep_alive: false
   - name: "3"
     display_name: "3 editor"
     bind_to_monitor: 1
@@ -244,6 +243,9 @@ window_rules:
     match:
       - window_process: { equals: "Fusion360" }
       - window_process: { equals: "retroarch" }
+
+  - commands: ["move --workspace 5", "toggle-fullscreen"]
+    match:
       - window_process: { equals: "javaw" }
         window_title: { regex: "Minecraft" }
 
@@ -341,6 +343,7 @@ window_rules:
         window_title: { equals: "Blender File View" }
       - window_process: { equals: "explorer" }
         window_class: { not_equals: "CabinetWClass" }
+        window_title: { not_equals: "Dieser PC" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
