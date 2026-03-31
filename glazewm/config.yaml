@@ -281,6 +281,7 @@ window_rules:
       - window_process: { equals: "calibre-parallel" }
       - window_process: { equals: "VirtualBoxVM" }
       - window_process: { equals: "olk" }
+      - window_process: { equals: "bambu-studio" }
 
   - commands: ["move --workspace 8", "set-fullscreen"]
     match:
