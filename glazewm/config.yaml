@@ -192,6 +192,8 @@ window_rules:
       - window_process: { regex: "gimp" }
         window_title: { not_regex: "GIMP" }
 
+      - window_process: { equals: "msrdc" }
+
   # ---------------------------------------------------------------------------
   # WORKSPACE 1
   # ---------------------------------------------------------------------------
