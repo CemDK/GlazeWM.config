@@ -186,11 +186,8 @@ window_rules:
       - window_process: { equals: "League of Legends" }
       - window_process: { equals: "LeagueClientUx" }
 
-      - window_process: { regex: "gimp" }
-        window_title: { regex: "Save Image|Export Image" }
-
-      - window_process: { regex: "gimp" }
-        window_title: { not_regex: "GIMP" }
+      - window_process: { equals: "gimp-3" }
+        window_title: { not_regex: "(GIMP|GNU Image Manipulation Program)" }
 
       - window_process: { equals: "msrdc" }
 
@@ -290,8 +287,7 @@ window_rules:
       - window_process: { equals: "VirtualBoxVM" }
       - window_process: { equals: "olk" }
       - window_process: { equals: "bambu-studio" }
-      - window_process: { regex: "gimp" }
-        window_title: { not_equals: "Save Image" }
+      - window_process: { equals: "gimp-3" }
 
   - commands: ["move --workspace 8", "set-fullscreen"]
     match:
