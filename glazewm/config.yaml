@@ -194,7 +194,7 @@ window_rules:
   # ---------------------------------------------------------------------------
   # WORKSPACE 1
   # ---------------------------------------------------------------------------
-  - commands: ["move --workspace 1", focus --workspace 1]
+  - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
       - window_process: { equals: "zen" }
       - window_process: { equals: "firefox" }
