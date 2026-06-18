@@ -271,7 +271,8 @@ window_rules:
   # ---------------------------------------------------------------------------
   - commands: ["move --workspace 7"]
     match:
-      - window_process: { equals: "anki" }
+      - window_process: { equals: "pythonw" }
+        window_title: { regex: "Anki" }
       - window_process: { equals: "Obsidian" }
 
   # ---------------------------------------------------------------------------
