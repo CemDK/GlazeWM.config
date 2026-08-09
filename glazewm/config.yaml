@@ -289,21 +289,20 @@ window_rules:
       - window_process: { equals: "bambu-studio" }
       - window_process: { equals: "gimp-3" }
       - window_process: { equals: "blender" }
-
-  - commands: ["move --workspace 8", "set-fullscreen"]
-    match:
       - window_process: { equals: "Unity" }
 
-  - commands: ["move --workspace 8", "set-floating", "set-minimized"]
+  - commands: ["move --workspace 8", "set-floating" ]
     match:
       - window_process: { equals: "Unity" }
         window_class: { equals: "ConsoleWindowClass" }
+      - window_process: { equals: "Unity" }
+        window_title: { regex: "Settings" }
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 9
   # ---------------------------------------------------------------------------
   # Move Steam main window to workspace 9
-  - commands: ["move --workspace 9"]
+  - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
       - window_process: { equals: "Unity Hub" }
       - window_process: { equals: "steamwebhelper" }
