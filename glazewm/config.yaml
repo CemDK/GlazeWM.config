@@ -204,12 +204,12 @@ window_rules:
   # ---------------------------------------------------------------------------
   # Move Edge (for dev) and pip windows to second screen
   # The size commands make it so edge and the pip fill the screen properly
-  - commands: ["move --workspace 0", "size --width 1420 --height 1700"]
+  - commands: ["move --workspace 0", "size --width 1418 --height 1700"]
     match:
       - window_process: { equals: "msedge" }
       - window_process: { equals: "chrome" }
 
-  - commands: ["move --workspace 0", "size --width 1420 --height 800"]
+  - commands: ["move --workspace 0", "size --width 1418 --height 800"]
     match:
       - window_title: { equals: "Picture-in-Picture" }
         window_class: { equals: "MozillaDialogClass" }
@@ -291,7 +291,7 @@ window_rules:
       - window_process: { equals: "blender" }
       - window_process: { equals: "Unity" }
 
-  - commands: ["move --workspace 8", "set-floating" ]
+  - commands: ["move --workspace 8", "set-floating"]
     match:
       - window_process: { equals: "Unity" }
         window_class: { equals: "ConsoleWindowClass" }
@@ -305,6 +305,7 @@ window_rules:
   - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
       - window_process: { equals: "Unity Hub" }
+      - window_process: { equals: "vncviewer" }
       - window_process: { equals: "steamwebhelper" }
         window_title: { equals: "Steam" }
 
@@ -399,13 +400,13 @@ keybindings:
 
   # Resize focused window by a percentage or pixel amount.
   # - commands: ["resize --width -2%"]
-    # bindings: ["alt+u"]
+  # bindings: ["alt+u"]
   # - commands: ["resize --width +2%"]
-    # bindings: ['alt+p']
+  # bindings: ['alt+p']
   # - commands: ["resize --height +2%"]
-    # bindings: ["alt+o"]
+  # bindings: ["alt+o"]
   # - commands: ['resize --height -2%']
-    # bindings: ['alt+i']
+  # bindings: ['alt+i']
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
