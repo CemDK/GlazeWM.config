@@ -285,8 +285,6 @@ window_rules:
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
       - window_process: { equals: "Plex" }
-      - window_process: { equals: "SumatraPDF" }
-        window_title: { not_regex: "expose.pdf" }
       - window_process: { equals: "vlc" }
       - window_process: { equals: "calibre" }
       - window_process: { equals: "calibre-parallel" }
@@ -296,6 +294,11 @@ window_rules:
       - window_process: { equals: "gimp-3" }
       - window_process: { equals: "blender" }
       - window_process: { equals: "Unity" }
+
+  - commands: ["move --workspace 8"]
+    match:
+      - window_process: { equals: "SumatraPDF" }
+        window_title: { not_regex: "expose.pdf" }
 
   - commands: ["move --workspace 8", "set-floating"]
     match:
