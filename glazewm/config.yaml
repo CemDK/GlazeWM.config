@@ -232,6 +232,11 @@ window_rules:
       - window_process: { equals: "devenv" }
       - window_process: { equals: "Zed" }
 
+  - commands: ["move --workspace 3", "size --width 1016"]
+    match:
+      - window_process: { equals: "SumatraPDF" }
+        window_title: { regex: "expose.pdf" }
+
   # ---------------------------------------------------------------------------
   # WORKSPACE 4
   # ---------------------------------------------------------------------------
@@ -263,8 +268,8 @@ window_rules:
   # ---------------------------------------------------------------------------
   # WORKSPACE 6
   # ---------------------------------------------------------------------------
-  - commands: ["move --workspace 6"]
-    match:
+  # - commands: ["move --workspace 6"]
+  # match:
 
   # ---------------------------------------------------------------------------
   # WORKSPACE 7
@@ -281,6 +286,7 @@ window_rules:
     match:
       - window_process: { equals: "Plex" }
       - window_process: { equals: "SumatraPDF" }
+        window_title: { not_regex: "expose.pdf" }
       - window_process: { equals: "vlc" }
       - window_process: { equals: "calibre" }
       - window_process: { equals: "calibre-parallel" }
